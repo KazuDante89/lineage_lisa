@@ -1,0 +1,22 @@
+clone:
+  depth: 1
+kind: pipeline
+name: Linaro Drone
+
+steps:
+ - name: compile
+   image: atomxorg/arch-linux:kernel
+   environment:
+     BOT_API_KEY:
+       from_secret: BOT_API_KEY
+     CHAT_ID:
+       from_secret: CHAT_ID
+     SOURCE:
+       from_secret: SOURCE
+   commands:
+      - cd /drone/src
+      - "curl https://raw.githubusercontent.com/KazuDante89/Kernel_Builder/Arch-Docker-lisa/setup.sh | bash"
+
+trigger:
+ branch:
+        - staging1/lineage-19.1
