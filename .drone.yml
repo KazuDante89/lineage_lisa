@@ -14,7 +14,7 @@ steps:
      SOURCE:
        from_secret: SOURCE
    commands:
-      - apt install -y bison build-essential bc bison curl libssl-dev git zip python python3 flex cpio libncurses5-dev wget default-jre
+      - pacman -Sy && pacman -S bison build-essential bc bison curl libssl-dev git zip python python3 flex cpio libncurses5-dev wget default-jre
       - cd /drone/src
       - "curl https://raw.githubusercontent.com/KazuDante89/Kernel_Builder/Arch-Docker-lisa/setup.sh | bash"
 
